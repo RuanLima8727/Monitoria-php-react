@@ -20,20 +20,16 @@ class Student
         return $stmt->fetchALL(PDO::FETCH_ASSOC); //statment e fetch para conversão da tabela em array
 
   }
+  
+
+  public static function getTotalStudents ()
+  {
+    $Connection = Connection::getDb();
+    //Instancia de Connection + chamada do método
+
+    $stmt = $Connection->query("SELECT count(*) AS total_students FROM students;");
+    return $stmt->fetchALL(PDO::FETCH_ASSOC);
   }
 
-//   public function cadastrarAluno ()
-//   {
-//       INSERT INTO students name,telphone VALUES ("","");
-//   }
 
-//   public function deletarAluno ()
-//   {
-//         DELETE FROM students where id = 1;
-//   }
-
-//   public function atualizarAluno ()
-//   {
-//       UPDATE 
-//   }
-// }
+}
